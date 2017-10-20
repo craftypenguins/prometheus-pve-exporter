@@ -61,8 +61,6 @@ class VersionCollector(object):
     def collect(self): # pylint: disable=missing-docstring
         version = self._pve.version.get()
 
-        del version['keyboard']
-
         labels, label_values = zip(*version.items())
         metric = GaugeMetricFamily(
             'pve_version_info',
